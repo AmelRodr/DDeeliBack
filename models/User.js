@@ -12,7 +12,13 @@ const userSchema = new Schema({
         ref:"User"
     }],
     email: String,
+    ciudad: String,
+    pais: String,
+    lema: String,
+    telefono: Number,
     photoURL: String,
+    nombre: String,
+    apellido: String,
     pictures:[
         {
             type: Schema.Types.ObjectId,
