@@ -64,7 +64,9 @@ const index = require('./routes/index');
 const auth = require('./routes/auth')
 const users = require('./routes/users')
 const pictures = require('./routes/pictures')
+const comida = require('./routes/comida')
 
+app.use('/comida',comida)
 app.use('/pictures', pictures)
 app.use('/users', users)
 app.use('/', auth)

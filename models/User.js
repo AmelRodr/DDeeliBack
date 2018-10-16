@@ -19,10 +19,10 @@ const userSchema = new Schema({
     photoURL: String,
     nombre: String,
     apellido: String,
-    pictures:[
+    comida:[
         {
             type: Schema.Types.ObjectId,
-            ref: "Picture"
+            ref: "Comida"
         }
     ]
 },{

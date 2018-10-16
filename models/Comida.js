@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 
 const comidaSchema = new Schema({
-    name: {
+    title : {
         type: String,
         required:true
     },
@@ -13,15 +13,16 @@ const comidaSchema = new Schema({
     }],
     price: String,
     description: String,
-    fecha  : Date,
+    date  : Date,
     horario: String,
-    photoURL: String,
-    pictures:[
+    profilephoto: String,
+    pictures:[String],
+    user:
         {
             type: Schema.Types.ObjectId,
-            ref: "Picture"
+            ref: "User"
         }
-    ]
+    
 },{
     timestamps:{
         createdAt:"created_at",
