@@ -13,6 +13,7 @@ router.get('/private', verifyToken, (req,res,next)=>{
 })
 
 router.post('/',verifyToken, uploadCloud.array('images'),(req,res,next)=>{
+    console.log(req)
     Comida.create({...req.body,user:req.user._id})
       .then(comi=>{
         User.findByIdAndUpdate(req.user._id,{$push:{comida:comi._id}})
