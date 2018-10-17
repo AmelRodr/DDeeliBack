@@ -13,9 +13,12 @@ router.get('/private', verifyToken, (req,res,next)=>{
 })
 
 router.post('/',verifyToken, uploadCloud.array('images'),(req,res,next)=>{
-    console.log('*************************req.files',req.body.user)
-    if(req.body.images) req.body.user=req.body._id
-    Comida.create({...req.body,user:req.user._id})
+    const pictures = []
+    if(req.files){
+        
+        req.files.map(f=>pictures.push(f.url))
+    }
+    Comida.create({...req.body,user:req.user._id, pictures})
       .then(comi=>{
         User.findByIdAndUpdate(req.user._id,{$push:{comida:comi._id}})
         .then(user =>{
