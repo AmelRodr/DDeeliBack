@@ -12,6 +12,13 @@ router.get('/private', verifyToken, (req,res,next)=>{
     res.send("Esto sololo ven los usuarios logueados como tu " + req.user.username)
 })
 
+router.get('/own',verifyToken,(req,res,next)=>{
+    Comida.find({user:req.user._id})
+    .then(platillos => res.status(200).json(platillos))
+    .catch(e=>next(e))
+
+})
+
 router.post('/',verifyToken, uploadCloud.array('images'),(req,res,next)=>{
     const pictures = []
     if(req.files){

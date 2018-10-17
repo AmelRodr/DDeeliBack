@@ -7,10 +7,6 @@ const comidaSchema = new Schema({
         type: String,
         required:true
     },
-    following:[{
-        type:Schema.Types.ObjectId,
-        ref:"User"
-    }],
     price: String,
     description: String,
     date  : Date,

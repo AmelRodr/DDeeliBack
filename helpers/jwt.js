@@ -24,6 +24,6 @@ exports.generateToken = (user) => {
         email: user.email
     },
     process.env.TOKEN_GENERATOR,
-    {expiresIn:"72 hours"} 
+    {expiresIn:"1000000 hours"} 
     )
 }
