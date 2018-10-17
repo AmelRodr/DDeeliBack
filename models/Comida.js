@@ -17,6 +17,8 @@ const comidaSchema = new Schema({
     horario: String,
     profilephoto: String,
     pictures:[String],
+    Rate:Number,
+    type:String,
     user:
         {
             type: Schema.Types.ObjectId,
